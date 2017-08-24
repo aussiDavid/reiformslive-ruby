@@ -1,6 +1,8 @@
 # Reisa::Wrapper
 
-A ruby wrapper for the REIFormslive developers API
+A ruby wrapper for the REIFormslive developers API.
+
+See REIFormslive [developers documetaion](http://developer.reiformslive.com.au/docs/index.html) for full details on the API. 
 
 ## Installation
 
