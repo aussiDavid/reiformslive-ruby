@@ -1,12 +1,13 @@
-module Reisa
+module REIformslive
   class Template
-    PATH = 'templates'.freeze
+    require 'reiformslive/core_ext'
+
+    PATH = '/templates'.freeze
 
     attr_reader :data, :path
     
     def initialize data: '{}'
-      @data = data.parse_json
-      
+      @data = data
     end
 
     def cost
@@ -34,17 +35,17 @@ module Reisa
     end
 
     def self.all
-      Reisa::Session
+      REIformslive::Session
         .get(path: PATH)
         .parse_json
-        .map{|data| data.to_s.gsub '=>', ':' }
-        .map{|data| Template.new data: data }
+        .map{|data| self.new data: data }
     end
 
     def self.find id
-      all
-        .select{|template| template.id == id }
-        .first
+      self.new data:
+        REIformslive::Session
+          .get(path: "#{PATH}/#{id}")
+          .parse_json
     end
   end
 end

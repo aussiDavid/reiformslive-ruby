@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sa-api.staging.reiformslive.com.au/user-templates
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - Basic NGI2NmZmOTUtYWRlNy00MTNlLWIwODYtMDA0NGRlN2I0Y2NmOmFlN2U1YTFiLWU4NWQtNDNjNC04ZDAxLWZkNWNiNDdkNzA0NA==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,X-Token,X-Key,X-Device-Uuid,X-Revision
+      Access-Control-Allow-Methods:
+      - PUT, GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 27 Aug 2017 06:02:16 GMT
+      Server:
+      - nginx/1.8.1
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '305'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":15648,"template_version_id":860,"agency_id":47,"user_id":319,"name":"tenancy","template":true,"finalised":false,"deleted":false,"archived":false,"private":false,"generate":true,"created":"1503712641","updated":"1503712710","given_name":"David","surname":"Milanese","template_version":null,"template_cost":0,"template_id":23,"template_name":"Residential
+        Property Tenancy Agreement","template_code":"FM6100","template_version_active":true,"file_ids":null,"annexure_versions_active":true,"template_active":true,"eol_template_name":null,"eol_template_code":null,"eol_template_id":null}]'
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 06:02:21 GMT
+recorded_with: VCR 3.0.3

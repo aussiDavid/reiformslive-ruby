@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Reisa::Template do
+describe REIformslive::Template do
   subject { described_class.new }
   
   it "can get all templates" do
@@ -11,15 +11,11 @@ describe Reisa::Template do
     expect(described_class).to respond_to(:find)
   end
   
-  describe 'static methods' do
-    before(:each) do
-      expect(Reisa::Session).to receive(:get).with(path: 'templates').and_return('[{"id": 1},{"id": 2}]')
-    end
+  describe 'static methods', :vcr do
 
     describe 'all' do
       subject { described_class.all }
       
-
       it "returns a list" do
         expect(subject).to respond_to(:each)
       end
@@ -29,8 +25,11 @@ describe Reisa::Template do
       end
     end
 
-
     describe 'find' do
+      before(:each) do
+        expect(REIformslive::Session).to receive(:get).and_return('{"id": 2}')
+      end
+      
       subject { described_class.find 2 }
 
       it "returns a template" do
@@ -44,7 +43,7 @@ describe Reisa::Template do
   end
 
   describe 'initialistion' do
-    subject { described_class.new data: '{"key": "value"}' }
+    subject { described_class.new data: {'key' => 'value'} }
   
     it 'can be iniailised with json' do
       expect{ subject }.not_to raise_exception
@@ -57,14 +56,14 @@ describe Reisa::Template do
 
   subject { 
     described_class.new(
-      data: '{
-        "cost": "1256",
-        "active": true,
-        "id": "20",
-        "name": "Example Template",
-        "code": "ET01",
-        "template_group_id": "2"
-      }'
+      data: {
+        'cost'    => 1256,
+        'active'  => true,
+        'id'      => '20',
+        'name'    => 'Example Template',
+        'code'    => 'ET01',
+        'template_group_id' => '2',
+      }
     ) 
   }
   
@@ -90,8 +89,5 @@ describe Reisa::Template do
 
   it 'has a template group id' do
     expect(subject.template_group_id).to eq 2
-  end
-
-  describe 'use case' do
   end
 end

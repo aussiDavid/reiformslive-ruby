@@ -1,4 +1,4 @@
-module Reisa
+module REIformslive
   class Credentials
     attr_reader :username, :password
     

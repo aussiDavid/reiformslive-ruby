@@ -1,26 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'reisa/version'
+require 'reiformslive/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "reisa-wrapper"
-  spec.version       = Reisa::VERSION
+  spec.name          = "reiformslive-ruby"
+spec.version       = REIformslive::VERSION
   spec.authors       = ["David Milanese"]
   spec.email         = ["milanese.david@gmail.com"]
 
   spec.summary       = %q{An API wrapper for REISA developers API in ruby}
   spec.description   = %q{An API wrapper for REISA developers API in ruby}
-  spec.homepage      = "https://github.com/aussiDavid/reisa-wrapper"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  spec.homepage      = "https://github.com/aussiDavid/reiformslive-ruby"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -32,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rest-client"
-  spec.add_development_dependency "json"
+  spec.add_development_dependency "json", "~> 2.1.0"
+  spec.add_development_dependency "faraday", "~> 0.13.1"
 end

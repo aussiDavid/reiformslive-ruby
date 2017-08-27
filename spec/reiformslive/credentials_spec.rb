@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Reisa::Credentials do
+describe REIformslive::Credentials do
   subject { described_class.new }
   
   it "can access username" do
