@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sa-api.staging.reiformslive.com.au/session
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Authorization:
+      - Basic NGI2NmZmOTUtYWRlNy00MTNlLWIwODYtMDA0NGRlN2I0Y2NmOmFlN2U1YTFiLWU4NWQtNDNjNC04ZDAxLWZkNWNiNDdkNzA0NA==
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,X-Token,X-Key,X-Device-Uuid,X-Revision
+      Access-Control-Allow-Methods:
+      - PUT, GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 14 Sep 2017 02:40:10 GMT
+      Server:
+      - nginx/1.10.3
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '34'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{
+        "user": {
+          "id": 1,
+          "agency_id": 2,
+          "member_number": null,
+          "realtor_number": null,
+          "given_name": "John",
+          "surname": "Doe",
+          "email": "JohnDoe@example.com",
+          "mobile": "",
+          "principal": true,
+          "default_private": false,
+          "active": true,
+          "deleted": false,
+          "created": 1354083959,
+          "updated": 1355181213
+        },
+        "agency": {
+          "id": 44,
+          "name": "Mark",
+          "address": "Test",
+          "address2": "",
+          "suburb": "Test",
+          "state": "SA",
+          "postcode": "5000",
+          "phone": "9493498394",
+          "fax": "8498349",
+          "email": "agency@example.com",
+          "credits": 26500,
+          "active": true,
+          "approved": true,
+          "member_number": "000001",
+          "licencee_name": "Example Agency Realty Ltd Pty",
+          "licencee_number": "000002",
+          "gst": false,
+          "abn": "000000",
+          "logo": null,
+          "created": 1354083959,
+          "updated": 1355288002,
+          "active_subscription": false,
+          "subscription_expiry": null,
+          "subscription_type": "ALL",
+          "admin": true,
+          "forms_created": 12
+        },
+        "token": "00000000-0000-0000-0000-000000000000",
+        "impersonating": false
+      }'
+    http_version: 
+  recorded_at: Thu, 14 Sep 2017 02:40:10 GMT
+recorded_with: VCR 3.0.3

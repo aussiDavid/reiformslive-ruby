@@ -93,7 +93,7 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  json (~> 2.1.0)
+  json (~> 2.1)
   rake (~> 10.0)
   reiformslive-ruby!
   rspec (~> 3.0)
@@ -101,4 +101,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.13.7
+   1.16.0.pre.2

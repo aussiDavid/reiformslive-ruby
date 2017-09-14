@@ -1,38 +1,25 @@
 require "spec_helper"
 
 describe REIformslive::Session do
-  it 'can perform a GET request' do
-    expect(described_class).to respond_to :get
+  subject { described_class.new }
+
+  it 'can get a token' do
+    expect(subject).to respond_to :token
   end
 
-  it 'can perform a PUT request' do
-    expect(described_class).to respond_to :put
-  end
+  describe 'token' do
+    subject { described_class.new.token }
 
-  describe 'GET requst' do
-    it 'performs the request' do
-      stub = stub_request :get, 'https://sa-api.staging.reiformslive.com.au/'
-      described_class.get
-      expect(stub).to have_been_requested    
+    it 'has a valid token' do
+     VCR.use_cassette :session do
+        expect(subject).to match /\d{8}\-\d{4}\-\d{4}\-\d{4}\-\d{12}/
+      end
     end
 
-    it 'performs the request to /templates' do
-      stub = stub_request :get, 'https://sa-api.staging.reiformslive.com.au/templates'
-      described_class.get path: '/templates'
-      expect(stub).to have_been_requested    
-    end
-  end
-
-  describe 'PUT requst' do
-    it 'performs the request' do
-      stub = stub_request :put, 'https://sa-api.staging.reiformslive.com.au/'
-      described_class.put
-      expect(stub).to have_been_requested    
-    end
-
-    it 'performs the request to /form' do
-      stub = stub_request :put, 'https://sa-api.staging.reiformslive.com.au/form'
-      described_class.put path: '/form'
+    it 'makes a request' do
+      stub = stub_request(:post, 'https://sa-api.staging.reiformslive.com.au/session')
+        .to_return(body: '{"token": "0000"}')
+      subject
       expect(stub).to have_been_requested    
     end
   end

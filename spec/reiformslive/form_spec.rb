@@ -3,11 +3,11 @@ require "spec_helper"
 describe REIformslive::Form do
   subject { described_class.new }
   
-  it "can get all forms" do
+  it 'can get all forms' do
     expect(described_class).to respond_to(:all)
   end
 
-  it "can get a form" do
+  it 'can get a form' do
     expect(described_class).to respond_to(:find)
   end
   
@@ -16,11 +16,11 @@ describe REIformslive::Form do
     describe 'all' do
       subject { described_class.all }
       
-      it "returns a list" do
+      it 'returns a list' do
         expect(subject).to respond_to(:each)
       end
 
-      it "forms to be of type form" do
+      it 'forms to be of type form' do
         expect(subject.first).to be_a described_class
       end
     end
@@ -32,11 +32,11 @@ describe REIformslive::Form do
       
       subject { described_class.find 2 }
 
-      it "returns a form" do
+      it 'returns a form' do
         expect(subject).to be_a described_class
       end
 
-      it "finds the correct form" do
+      it 'finds the correct form' do
         expect(subject.id).to eq 2
       end
     end

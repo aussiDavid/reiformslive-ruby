@@ -5,7 +5,7 @@ require 'reiformslive/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "reiformslive-ruby"
-spec.version       = REIformslive::VERSION
+  spec.version       = REIformslive::VERSION
   spec.authors       = ["David Milanese"]
   spec.email         = ["milanese.david@gmail.com"]
 
@@ -23,6 +23,6 @@ spec.version       = REIformslive::VERSION
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "json", "~> 2.1.0"
+  spec.add_development_dependency "json", "~> 2.1"
   spec.add_development_dependency "faraday", "~> 0.13.1"
 end
